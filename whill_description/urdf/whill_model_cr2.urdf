@@ -305,7 +305,7 @@
         <child link="right_arm" />
         <origin xyz="0 -0.245 0.30" rpy="0 1.0 0"/>
     </joint>
-    <!-- RPLiDAR土台とセンサー -->
+    <!-- RPLiDAR土台とセンサー追加 -->
     <link name="rplidar_base">
         <visual>
             <geometry>

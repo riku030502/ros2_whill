@@ -33,7 +33,7 @@ def generate_launch_description():
         default=os.path.join(
             get_package_share_directory('whill_navigation2'),
             'map',
-            'my_map.yaml'))
+            'my_map.yaml')) #mapの名前を記述
 
     param_file_name = 'whill.yaml'
     param_dir = LaunchConfiguration(

@@ -1,4 +1,4 @@
 whill:
   ros__parameters:
-    port_name: "/dev/ttyUSB0"
+    port_name: "/dev/ttyUSB0" #接続しているtype
     publish_interval_ms: 400
