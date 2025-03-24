@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>whill</name>
+  <version>0.0.1</version>
+  <description>ROS2 package for WHILL Model CR2</description>
+  <maintainer email="george.mandokoro@whill.inc">George Mandokoro</maintainer>
+  <license>MIT</license>
+
+  <url type="website">https://whill.inc/jp/model-cr2</url>
+  <url type="repository">https://github.com/whill-labs/ros2_whill</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <exec_depend>whill_driver</exec_depend>
+  <exec_depend>whill_bringup</exec_depend>
+  <exec_depend>whill_examples</exec_depend>
+  <exec_depend>whill_description</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

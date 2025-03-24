@@ -1,0 +1,31 @@
+# All settings not listed here will use the Doxygen default values.
+
+# Attention: If you need to obtain the class diagram, please edit README.md.
+# 1. replace "```mermaid" into following 2 line:
+# @htmlonly
+# <div class="mermaid">
+# 
+# 1. replace "```" into following 4 line:
+# </div>
+# <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+# <script>mermaid.initialize({startOnLoad:true});</script>
+# @endhtmlonly
+
+PROJECT_NAME           = "whill_driver"
+PROJECT_NUMBER         = humble
+PROJECT_BRIEF          = "ROS2 package for WHILL Model CR2"
+
+INPUT                  = ./
+
+RECURSIVE              = YES
+OUTPUT_DIRECTORY       = doc_output
+
+EXTRACT_ALL            = YES
+SORT_MEMBER_DOCS       = NO
+
+GENERATE_LATEX         = NO
+
+ENABLE_PREPROCESSING   = YES
+MACRO_EXPANSION        = YES
+
+DOT_GRAPH_MAX_NODES    = 101

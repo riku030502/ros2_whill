@@ -1,0 +1,4 @@
+whill:
+  ros__parameters:
+    port_name: "/dev/ttyUSB0"
+    publish_interval_ms: 400
