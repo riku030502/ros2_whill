@@ -5,7 +5,7 @@ amcl:
     alpha2: 0.2
     alpha3: 0.2
     alpha4: 0.2
-    alpha5: 0.2
+    alpha5: 0.2 
     base_frame_id: "base_link"
     beam_skip_distance: 0.5
     beam_skip_error_threshold: 0.9
@@ -17,7 +17,7 @@ amcl:
     laser_max_range: 15.0
     laser_min_range: 0.1
     laser_model_type: "likelihood_field"
-    max_beams: 60
+    max_beams: 180
     max_particles: 3000
     min_particles: 500
     odom_frame_id: "odom"
@@ -119,48 +119,25 @@ controller_server:
       plugin: "nav2_controller::SimpleGoalChecker"
       xy_goal_tolerance: 0.3
       yaw_goal_tolerance: 0.3
-
-    # DWB parameters
-    FollowPath:
-      plugin: "dwb_core::DWBLocalPlanner"
-      debug_trajectory_details: True
-      min_vel_x: 0.0
-      min_vel_y: 0.0
-      max_vel_x: 0.18  
-      max_vel_y: 0.0
-      max_vel_theta: 0.5  
-      min_speed_xy: 0.01
-      max_speed_xy: 0.22
-      min_speed_theta: 0.0
-      acc_lim_x: 0.3  
-      acc_lim_y: 0.0
-      acc_lim_theta: 0.5  
-      decel_lim_x: -0.3 
-      decel_lim_y: 0.0
-      decel_lim_theta: -0.5  
-      vx_samples: 50  
-      vy_samples: 0
-      vtheta_samples: 30  
-      sim_time: 1.5
-      linear_granularity: 0.1  
-      angular_granularity: 0.05  
+    # MPPI Controller 設定
+    MPPIController:
+      plugin: "nav2_mppi_controller::MPPIController"
+      time_steps: 56
+      model_dt: 0.1
+      batch_size: 2000
+      vx_std: 0.2
+      vy_std: 0.0
+      wz_std: 0.4
+      vx_max: 0.22
+      vx_min: 0.0
+      wz_max: 0.5
+      wz_min: -0.5
+      gamma: 0.8
+      temperature: 0.3
+      reset_costmap: True
       transform_tolerance: 0.2
-      xy_goal_tolerance: 0.03
-      trans_stopped_velocity: 0.05
-      short_circuit_trajectory_evaluation: True
-      stateful: True
-      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.05
-      PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
-      GoalAlign.scale: 16.0
-      GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
-      RotateToGoal.scale: 20.0
-      RotateToGoal.slowing_factor: 10.0
-      RotateToGoal.lookahead_time: -1.0
-      
+      visualize: True  # MPPIの軌道をRVizで可視化
+
 controller_server_rclcpp_node:
   ros__parameters:
     use_sim_time: False
